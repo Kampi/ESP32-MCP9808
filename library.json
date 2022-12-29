@@ -1,0 +1,25 @@
+{
+	"name": "MCP9808",
+	"version": "1.0.0",
+	"keywords": "esp-idf, MCP9808, temperature, i2c",
+	"description": "MCP9808 driver for the esp-idf framework.",
+	"repository": {
+		"type": "git",
+		"url": "https://gitlab.server-kampert.de/esp32/libraries/mcp9808.git"
+	},
+	"frameworks": "espidf",
+	"platforms": "*",
+	"build": {
+		"flags": [
+			"-Iinclude"
+		],
+		"includeDir": ".",
+		"srcDir": ".",
+		"srcFilter": [
+			"-<*>",
+			"+<src>"
+		]
+	},
+	"dependencies": [
+	]
+}
