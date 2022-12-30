@@ -26,104 +26,99 @@
 /** @brief  Get the shutdown status of the device.
  *  @return #true when the device is in shutdown mode
  */
-inline __attribute__((always_inline)) bool MCP9808_isShutdown(MCP9808_t* const p_Device)
+inline __attribute__((always_inline)) bool MCP9808_isShutdown(MCP9808_t& p_Device)
 {
-    if(p_Device == NULL)
-    {
-        return true;
-    }
-
-    return p_Device->Internal.isShutdown;
+    return p_Device.Internal.isShutdown;
 }
 
 /** @brief          Initialize the MCP9808 sensor driver and the device.
  *  @param p_Device Pointer to device object
  *  @return         MCP9808_ERR_OK when successful
  */
-MCP9808_Error_t MCP9808_Init(MCP9808_t* const p_Device);
+MCP9808_Error_t MCP9808_Init(MCP9808_t& p_Device);
 
 /** @brief          Enable / Disable the shutdown mode.
  *  @param p_Device Pointer to device object
  *  @param Enable   Shutdown enable / disable
  *  @return         MCP9808_ERR_OK when successful
  */
-MCP9808_Error_t MCP9808_SwitchShutdown(MCP9808_t* const p_Device, bool Enable);
+MCP9808_Error_t MCP9808_SwitchShutdown(MCP9808_t& p_Device, bool Enable);
 
 /** @brief                  Get the temperature from the device.
  *  @param p_Device         Pointer to device object
  *  @param p_Temperature    Pointer to ambient temperature in °C
  *  @return                 MCP9808_ERR_OK when successful
  */
-MCP9808_Error_t MCP9808_GetTemperature(MCP9808_t* const p_Device, int8_t* p_Temperature);
+MCP9808_Error_t MCP9808_GetTemperature(MCP9808_t& p_Device, int8_t* const p_Temperature);
 
 /** @brief          Set the upper temperature limit.
  *  @param p_Device Pointer to device object
  *  @param Limit    Temperature limit
  *  @return         MCP9808_ERR_OK when successful
  */
-MCP9808_Error_t MCP9808_SetTupper(MCP9808_t* const p_Device, int16_t Limit);
+MCP9808_Error_t MCP9808_SetTupper(MCP9808_t& p_Device, int16_t Limit);
 
 /** @brief          Get the upper temperature limit.
  *  @param p_Device Pointer to device object
  *  @param p_Limit  Pointer to temperature limit
  *  @return         MCP9808_ERR_OK when successful
  */
-MCP9808_Error_t MCP9808_GetTupper(MCP9808_t* const p_Device, int16_t* p_Limit);
+MCP9808_Error_t MCP9808_GetTupper(MCP9808_t& p_Device, int16_t* const p_Limit);
 
 /** @brief          Set the lower temperature limit.
  *  @param p_Device Pointer to device object
  *  @param Limit    Temperature limit
  *  @return         MCP9808_ERR_OK when successful
  */
-MCP9808_Error_t MCP9808_SetTlower(MCP9808_t* const p_Device, int16_t Limit);
+MCP9808_Error_t MCP9808_SetTlower(MCP9808_t& p_Device, int16_t Limit);
 
 /** @brief          Get the lower temperature limit.
  *  @param p_Device Pointer to device object
  *  @param p_Limit  Pointer to temperature limit
  *  @return         MCP9808_ERR_OK when successful
  */
-MCP9808_Error_t MCP9808_GetTlower(MCP9808_t* const p_Device, int16_t* p_Limit);
+MCP9808_Error_t MCP9808_GetTlower(MCP9808_t& p_Device, int16_t* const p_Limit);
 
 /** @brief          Set the critical temperature limit.
  *  @param p_Device Pointer to device object
  *  @param Limit    Temperature limit
  *  @return         MCP9808_ERR_OK when successful
  */
-MCP9808_Error_t MCP9808_SetTcrit(MCP9808_t* const p_Device, int16_t Limit);
+MCP9808_Error_t MCP9808_SetTcrit(MCP9808_t& p_Device, int16_t Limit);
 
 /** @brief          Get the critical temperature limit.
  *  @param p_Device Pointer to device object
  *  @param p_Limit  Pointer to temperature limit
  *  @return         MCP9808_ERR_OK when successful
  */
-MCP9808_Error_t MCP9808_GetTcrit(MCP9808_t* const p_Device, int16_t* p_Limit);
+MCP9808_Error_t MCP9808_GetTcrit(MCP9808_t& p_Device, int16_t* const p_Limit);
 
 /** @brief              Set the hysteresis of the device.
  *  @param p_Device     Pointer to device object
  *  @param Hysteresis   Sensor gysteresis
  *  @return             MCP9808_ERR_OK when successful
  */
-MCP9808_Error_t MCP9808_SetHysteresis(MCP9808_t* const p_Device, MCP9808_Hysteresis_t Hysteresis);
+MCP9808_Error_t MCP9808_SetHysteresis(MCP9808_t& p_Device, MCP9808_Hysteresis_t Hysteresis);
 
 /** @brief              Get the hysteresis of the device.
  *  @param p_Device     Pointer to device object
  *  @param p_Hysteresis Pointer to sensor gysteresis
  *  @return             MCP9808_ERR_OK when successful
  */
-MCP9808_Error_t MCP9808_GetHysteresis(MCP9808_t* const p_Device, MCP9808_Hysteresis_t* p_Hysteresis);
+MCP9808_Error_t MCP9808_GetHysteresis(MCP9808_t& p_Device, MCP9808_Hysteresis_t* const p_Hysteresis);
 
 /** @brief              Set the resolution of the device.
  *  @param p_Device     Pointer to device object
  *  @param Resolution   Sensor resolution
  *  @return             MCP9808_ERR_OK when successful
  */
-MCP9808_Error_t MCP9808_SetResolution(MCP9808_t* const p_Device, MCP9808_Resolution_t Resolution);
+MCP9808_Error_t MCP9808_SetResolution(MCP9808_t& p_Device, MCP9808_Resolution_t Resolution);
 
 /** @brief              Get the resolution of the device.
  *  @param p_Device     Pointer to device object
  *  @param p_Resolution Pointer to sensor resolution
  *  @return             MCP9808_ERR_OK when successful
  */
-MCP9808_Error_t MCP9808_GetResolution(MCP9808_t* const p_Device, MCP9808_Resolution_t* p_Resolution);
+MCP9808_Error_t MCP9808_GetResolution(MCP9808_t& p_Device, MCP9808_Resolution_t* const p_Resolution);
 
 #endif /* MCP9808_H_ */
