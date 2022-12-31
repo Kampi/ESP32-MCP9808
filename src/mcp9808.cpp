@@ -183,8 +183,6 @@ MCP9808_Error_t MCP9808_GetTemperature(MCP9808_t& p_Device, int8_t* const p_Temp
         Temperature = (((Temp[0] & 0x0F) << 0x04) + (Temp[1] >> 0x04));
     }
 
-    ESP_LOGI(TAG, "Upper: 0x%X", Temp[0]);
-
     // TA > TCRIT
     if((Temp[0] & (0x01 << MCP9808_BIT_TCRIT)) >> MCP9808_BIT_TCRIT)
     {
